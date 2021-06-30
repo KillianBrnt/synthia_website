@@ -17,11 +17,17 @@ const useStyles = makeStyles((theme) => ({
     background: "none",
   },
   appbarWrapper: {
-    width: "80%",
+    width: "90%",
     margin: "0 auto",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    [theme.breakpoints.down("md")]: {
+      flexDirection: "column",
+    },
   },
   appbarTitle: {
-    flexGrow: "1",
+    flexGrow: "0.8",
   },
   icon: {
     color: "#fff",
@@ -47,7 +53,7 @@ const NavigationBar = () => {
               Home
             </Typography>
           </Link>
-          <Link to="/Somepage" style={{ textDecoration: "none" }}>
+          <Link to="/newsletter" style={{ textDecoration: "none" }}>
             <Typography variant="h6" className={classes.title}>
               Newsletter
             </Typography>

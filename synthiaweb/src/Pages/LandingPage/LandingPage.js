@@ -43,11 +43,11 @@ const LandingPage = (props) => {
   );
 };
 
-ImageCard.defaultProps = {
+LandingPage.defaultProps = {
   places: [],
 };
 
-ImageCard.propTypes = {
+LandingPage.propTypes = {
   place: PropTypes.arrayOf(PropTypes.object),
 };
 

@@ -12,12 +12,12 @@ ImageCardContainer.defaultProps = {
     description: "no description provided",
     imageUrl: "",
   },
-  checked: {},
+  checked: true,
 };
 
 ImageCardContainer.propTypes = {
   place: PropTypes.object,
-  checked: PropTypes.object,
+  checked: PropTypes.bool,
 };
 
 export default ImageCardContainer;

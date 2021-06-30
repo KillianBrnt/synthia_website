@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundSize: "cover",
   },
 }));
+
 const PageDoesntExist = () => {
     const classes = useStyles();
   
