@@ -1,12 +1,16 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import PropTypes from 'prop-types';
+import { makeStyles, useTheme } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import MenuIcon from "@material-ui/icons/Menu";
+import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import { List, ListItem, Divider, SwipeableDrawer } from "@material-ui/core";
+import Slide from '@material-ui/core/Slide';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -64,10 +68,32 @@ const useStyles = makeStyles((theme) => ({
   },
   drawer: {
     background: "rgba(0,0,0,0.5)",
-  }
+  },
 }));
 
-const NavigationBar = () => {
+const HideOnScroll = (props) => {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down('md'));
+  const { children, window } = props;
+  const trigger = useScrollTrigger({ target: window ? window() : undefined });
+
+  if (matches) {
+    return (
+      <Slide appear={false} direction="down" in={!trigger}>
+        {children}
+      </Slide>
+    );  
+  } else {
+    return <> {children} </>
+  }
+};
+
+HideOnScroll.propTypes = {
+  children: PropTypes.element.isRequired,
+  window: PropTypes.func,
+};
+
+const NavigationBar = (props) => {
   const classes = useStyles();
   const [state, setState] = React.useState(false);
 
@@ -91,7 +117,7 @@ const NavigationBar = () => {
       onKeyDown={toggleDrawer(false)}
     >
       <List>
-        <ListItem >
+        <ListItem>
           <Link to="/" style={{ textDecoration: "none" }}>
             <Typography variant="h6" className={classes.mobileTitle}>
               Home
@@ -101,7 +127,7 @@ const NavigationBar = () => {
       </List>
       <Divider />
       <List>
-        <ListItem >
+        <ListItem>
           <Link to="/newsletter" style={{ textDecoration: "none" }}>
             <Typography variant="h6" className={classes.mobileTitle}>
               Newsletter
@@ -111,7 +137,7 @@ const NavigationBar = () => {
       </List>
       <Divider />
       <List>
-        <ListItem >
+        <ListItem>
           <Link to="/Someotherpage" style={{ textDecoration: "none" }}>
             <Typography variant="h6" className={classes.mobileTitle}>
               Example
@@ -124,46 +150,48 @@ const NavigationBar = () => {
 
   return (
     <div className={classes.root}>
-      <AppBar className={classes.appbar} elevation={0}>
-        <Toolbar className={classes.appbarWrapper}>
-          <div className={classes.wrapper}>
-            <h1 className={classes.appbarTitle}>
-              Synth<span className={classes.colorText}>IA</span>
-            </h1>
-            <Button
-              color="primary"
-              className={classes.button}
-              onClick={toggleDrawer(true)}
+      <HideOnScroll {...props}>
+        <AppBar className={classes.appbar} elevation={0}>
+          <Toolbar className={classes.appbarWrapper}>
+            <div className={classes.wrapper}>
+              <h1 className={classes.appbarTitle}>
+                Synth<span className={classes.colorText}>IA</span>
+              </h1>
+              <Button
+                color="primary"
+                className={classes.button}
+                onClick={toggleDrawer(true)}
+              >
+                <MenuIcon />
+              </Button>
+            </div>
+            <SwipeableDrawer
+              classes={{ paper: classes.drawer }}
+              anchor={"right"}
+              open={state}
+              onClose={toggleDrawer(false)}
+              onOpen={toggleDrawer(true)}
             >
-              <MenuIcon />
-            </Button>
-          </div>
-          <SwipeableDrawer
-            classes={{ paper: classes.drawer }}
-            anchor={"right"}
-            open={state}
-            onClose={toggleDrawer(false)}
-            onOpen={toggleDrawer(true)}
-          >
-            {mobileVersion()}
-          </SwipeableDrawer>
-          <Link to="/" style={{ textDecoration: "none" }}>
-            <Typography variant="h6" className={classes.title}>
-              Home
-            </Typography>
-          </Link>
-          <Link to="/newsletter" style={{ textDecoration: "none" }}>
-            <Typography variant="h6" className={classes.title}>
-              Newsletter
-            </Typography>
-          </Link>
-          <Link to="/Someotherpage" style={{ textDecoration: "none" }}>
-            <Typography variant="h6" className={classes.title}>
-              Example
-            </Typography>
-          </Link>
-        </Toolbar>
-      </AppBar>
+              {mobileVersion()}
+            </SwipeableDrawer>
+            <Link to="/" style={{ textDecoration: "none" }}>
+              <Typography variant="h6" className={classes.title}>
+                Home
+              </Typography>
+            </Link>
+            <Link to="/newsletter" style={{ textDecoration: "none" }}>
+              <Typography variant="h6" className={classes.title}>
+                Newsletter
+              </Typography>
+            </Link>
+            <Link to="/Someotherpage" style={{ textDecoration: "none" }}>
+              <Typography variant="h6" className={classes.title}>
+                Example
+              </Typography>
+            </Link>
+          </Toolbar>
+        </AppBar>
+      </HideOnScroll>
     </div>
   );
 };
