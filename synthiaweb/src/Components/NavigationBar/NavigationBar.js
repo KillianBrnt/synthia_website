@@ -3,11 +3,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
-import Menu from "@material-ui/core/Menu";
-import MenuItem from "@material-ui/core/MenuItem";
 import MenuIcon from "@material-ui/icons/Menu";
+import { List, ListItem, Divider, SwipeableDrawer } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,6 +18,9 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("md")]: {
       display: "none",
     },
+  },
+  mobileTitle: {
+    color: "#FFFFFF",
   },
   appbar: {
     background: "none",
@@ -57,26 +59,68 @@ const useStyles = makeStyles((theme) => ({
       display: "block",
     },
   },
-  menu: {
-    display: "none",
-    [theme.breakpoints.down("md")]: {
-      display: "block",
-    },
+  list: {
+    width: 250,
   },
+  drawer: {
+    background: "rgba(0,0,0,0.5)",
+  }
 }));
 
 const NavigationBar = () => {
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  let history = useHistory();
+  const [state, setState] = React.useState(false);
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
+  const toggleDrawer = (open) => (event) => {
+    if (
+      event &&
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
+    }
+
+    setState(open);
   };
 
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+  const mobileVersion = () => (
+    <div
+      className={classes.list}
+      role="presentation"
+      onClick={toggleDrawer(false)}
+      onKeyDown={toggleDrawer(false)}
+    >
+      <List>
+        <ListItem >
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <Typography variant="h6" className={classes.mobileTitle}>
+              Home
+            </Typography>
+          </Link>
+        </ListItem>
+      </List>
+      <Divider />
+      <List>
+        <ListItem >
+          <Link to="/newsletter" style={{ textDecoration: "none" }}>
+            <Typography variant="h6" className={classes.mobileTitle}>
+              Newsletter
+            </Typography>
+          </Link>
+        </ListItem>
+      </List>
+      <Divider />
+      <List>
+        <ListItem >
+          <Link to="/Someotherpage" style={{ textDecoration: "none" }}>
+            <Typography variant="h6" className={classes.mobileTitle}>
+              Example
+            </Typography>
+          </Link>
+        </ListItem>
+      </List>
+    </div>
+  );
 
   return (
     <div className={classes.root}>
@@ -89,44 +133,20 @@ const NavigationBar = () => {
             <Button
               color="primary"
               className={classes.button}
-              onClick={handleClick}
+              onClick={toggleDrawer(true)}
             >
               <MenuIcon />
             </Button>
           </div>
-          <Menu
-            id="simple-menu"
-            anchorEl={anchorEl}
-            keepMounted
-            open={Boolean(anchorEl)}
-            onClose={handleClose}
-            className={classes.menu}
+          <SwipeableDrawer
+            classes={{ paper: classes.drawer }}
+            anchor={"right"}
+            open={state}
+            onClose={toggleDrawer(false)}
+            onOpen={toggleDrawer(true)}
           >
-            <MenuItem
-              onClick={() => {
-                handleClose();
-                history.push("/");
-              }}
-            >
-              Home
-            </MenuItem>
-            <MenuItem
-              onClick={() => {
-                handleClose();
-                history.push("/newsletter");
-              }}
-            >
-              Newsletter
-            </MenuItem>
-            <MenuItem
-              onClick={() => {
-                handleClose();
-                history.push("/Someotherpage");
-              }}
-            >
-              Example
-            </MenuItem>
-          </Menu>
+            {mobileVersion()}
+          </SwipeableDrawer>
           <Link to="/" style={{ textDecoration: "none" }}>
             <Typography variant="h6" className={classes.title}>
               Home
