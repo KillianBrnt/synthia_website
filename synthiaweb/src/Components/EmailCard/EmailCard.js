@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     width: "90%",
     maxWidth: 600,
-    background: "rgba(0,0,0,0.5)",
+    background: "rgba(255,255,255,0.5)",
     margin: "20px",
     display: "flex",
     flexDirection: "column",

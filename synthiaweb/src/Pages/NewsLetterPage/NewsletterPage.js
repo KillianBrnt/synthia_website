@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core";
 import PropTypes from "prop-types";
-import EmailCard from "../../Components/EmailCard";
+import TextCard from "../../Components/TextCard";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,16 +17,22 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    flexDirection: "column",
   },
 }));
 
 const NewsletterPage = (props) => {
   const classes = useStyles();
+  const text = {
+    title: "News Letter",
+    description:
+      "A short description : Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  }
 
   return (
     <div className={classes.root}>
       <div className={classes.container}>
-        <EmailCard pushMail={props.pushMail} />
+        <TextCard place={text} pushMail={props.pushMail}/>
       </div>
     </div>
   );
