@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     marginRight: theme.spacing(2),
-    color: "#FFFFFF",
+    color: "#4dd2f7",
     [theme.breakpoints.down("md")]: {
       display: "none",
     },
@@ -41,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
   },
   appbarTitle: {
     fontFamily: "Nunito",
+    color : "#ace1ed ",
   },
   colorText: {
     color: "#4dd2f7",

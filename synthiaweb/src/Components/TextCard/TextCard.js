@@ -10,7 +10,7 @@ import Collapse from "@material-ui/core/Collapse";
 const useStyles = makeStyles({
   root: {
     maxWidth: 645,
-    background: "rgba(0,0,0,0.5)",
+    background: "rgba(140,217,234,0.7)",
     margin: "20px",
   },
   media: {
@@ -25,7 +25,7 @@ const useStyles = makeStyles({
   desc: {
     fontFamily: "Nunito",
     fontSize: "1.1rem",
-    color: "#ddd",
+    color: "white",
   },
 });
 

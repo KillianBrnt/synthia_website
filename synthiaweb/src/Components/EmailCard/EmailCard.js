@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
   button: {
     marginTop: theme.spacing(2),
     width: "100%",
-    background: "grey",
+    background: "rgba(140,217,234,0.5)",
     color: "white",
     "&:hover": {
       backgroundColor: "darkGrey",

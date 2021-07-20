@@ -4,22 +4,22 @@ import LandingPage from "./LandingPage";
 const LandingPageContainer = () => {
   const places = [
     {
-      title: "First Title",
+      title: "Application mobile et web",
       description:
-        "A short description : Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      imageUrl: process.env.PUBLIC_URL + "/assets/BackGroundTemp.jpeg",
+        "L’outil de synthétisation vocal Synthia est composé de deux applications pour les plateformes mobiles et web. Avec l’application web Synthia, vous allez pouvoir de créer des réunions ainsi que les gérer depuis votre dashboard interne. En plus d’administrer vos réunions, l’application mobile vous permettra de lancer l’assistant vocal.",
+      imageUrl: process.env.PUBLIC_URL + "/assets/AppImage.png",
     },
     {
-      title: "Second Title",
+      title: "Asisstant vocal",
       description:
-        "A short description : Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      imageUrl: process.env.PUBLIC_URL + "/assets/BackGroundTemp.jpeg",
+        "En plus de ses deux applications, Synthia est composé d’un boitier d’assistance vocal vous accompagnant durant vos réunions. L’assistant se lancera depuis l’application mobile et suivra le cours de votre réunion. Une fois la réunion terminé, l’assistant enverra le contenu vers notre programme de synthétisation.",
+      imageUrl: process.env.PUBLIC_URL + "/assets/MeetingImage.png",
     },
     {
-      title: "Third Title",
+      title: "Synthétisation",
       description:
-        "A short description : Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      imageUrl: process.env.PUBLIC_URL + "/assets/BackGroundTemp.jpeg",
+        "La synthétisation sera la dernière étape avant d’accéder à votre compte-rendu final. La puissance de notre intelligence artificielle retranscrira fidèlement les différents points abordés lors de votre réunion grâce à des séries de mots clés. Une fois disponible, il vous sera possible de télécharger et des partager vos comptes-rendus avec vos collaborateurs.",
+      imageUrl: process.env.PUBLIC_URL + "/assets/IAImage.png",
     },
   ];
 
