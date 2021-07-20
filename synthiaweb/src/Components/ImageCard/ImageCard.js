@@ -31,10 +31,6 @@ const useStyles = makeStyles({
   content: {
     backgroundColor: "#ace1ed",
   },
-  paperBackground : {
-    backgroundImage : {props.checked.place.ImageUrl},
-    height: 440,
-  }
 });
 
 export default function ImageCard(props) {
@@ -43,7 +39,10 @@ export default function ImageCard(props) {
   return (
     <Collapse in={props.checked} {...(props.checked ? { timeout: 1000 } : {})}>
       <Card className={classes.root}>
-        <Paper className={classes.paperBackground}
+        <CardMedia
+          className={classes.media}
+          image={props.place.imageUrl}
+          title="Contemplative Reptile"
         />
         <CardContent className={classes.content}>
           <Typography
