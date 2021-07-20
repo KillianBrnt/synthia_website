@@ -54,10 +54,10 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(1),
     justifyContent: "flex-start",
     align: "left",
-    color: "white",
+    color: "#ace1ed",
     "&:hover": {
       background: "none",
-      color: "white",
+      color: "#ace1ed",
     },
     display: "none",
     [theme.breakpoints.down("md")]: {
@@ -68,7 +68,7 @@ const useStyles = makeStyles((theme) => ({
     width: 250,
   },
   drawer: {
-    background: "rgba(0,0,0,0.5)",
+    background: "rgba(172, 225, 237,0.5)",
   },
 }));
 
@@ -159,7 +159,6 @@ const NavigationBar = (props) => {
                 Synth<span className={classes.colorText}>IA</span>
               </h1>
               <Button
-                color="primary"
                 className={classes.button}
                 onClick={toggleDrawer(true)}
               >
