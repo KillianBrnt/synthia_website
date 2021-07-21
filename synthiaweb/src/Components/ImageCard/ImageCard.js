@@ -5,7 +5,6 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
-import { Collapse } from "@material-ui/core";
 
 const useStyles = makeStyles({
   root: {
@@ -36,7 +35,6 @@ export default function ImageCard(props) {
   const classes = useStyles();
 
   return (
-    <Collapse in={props.checked} {...(props.checked ? { timeout: 1000 } : {})}>
       <Card elevation={0} className={classes.root}>
         <CardMedia
           className={classes.media}
@@ -62,7 +60,6 @@ export default function ImageCard(props) {
           </Typography>
         </CardContent>
       </Card>
-    </Collapse>
   );
 }
 
@@ -72,10 +69,8 @@ ImageCard.defaultProps = {
     description: "no description provided",
     imageUrl: "",
   },
-  checked: true,
 };
 
 ImageCard.propTypes = {
   place: PropTypes.object,
-  checked: PropTypes.bool,
 };

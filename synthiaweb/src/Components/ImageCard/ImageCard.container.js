@@ -3,7 +3,7 @@ import ImageCard from "./ImageCard";
 import PropTypes from "prop-types";
 
 const ImageCardContainer = (props) => {
-  return <ImageCard place={props.place} checked={props.checked} />;
+  return <ImageCard place={props.place} />;
 };
 
 ImageCardContainer.defaultProps = {
@@ -12,12 +12,10 @@ ImageCardContainer.defaultProps = {
     description: "no description provided",
     imageUrl: "",
   },
-  checked: true,
 };
 
 ImageCardContainer.propTypes = {
   place: PropTypes.object,
-  checked: PropTypes.bool,
 };
 
 export default ImageCardContainer;

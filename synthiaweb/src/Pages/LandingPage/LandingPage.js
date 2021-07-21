@@ -5,6 +5,7 @@ import { makeStyles } from "@material-ui/core";
 import { CssBaseline } from "@material-ui/core";
 import ImageCard from "../../Components/ImageCard";
 import useWindowPosition from "../../hook/useWindowPosition";
+import { Collapse } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,9 +36,13 @@ const LandingPage = (props) => {
       <CssBaseline />
       <Header />
       <div className={classes.synthiaInfo} id="synthia-info">
-        <ImageCard place={props.places[0]} checked={checked} />
-        <ImageCard place={props.places[1]} checked={checked} />
-        <ImageCard place={props.places[2]} checked={checked} />
+        <Collapse in={checked} {...(checked ? { timeout: 1000 } : {})}>
+          <div className={classes.synthiaInfo}>
+            <ImageCard place={props.places[0]} />
+            <ImageCard place={props.places[1]} />
+            <ImageCard place={props.places[2]} />
+          </div>
+        </Collapse>
       </div>
     </div>
   );
@@ -50,6 +55,5 @@ LandingPage.defaultProps = {
 LandingPage.propTypes = {
   place: PropTypes.arrayOf(PropTypes.object),
 };
-
 
 export default LandingPage;
