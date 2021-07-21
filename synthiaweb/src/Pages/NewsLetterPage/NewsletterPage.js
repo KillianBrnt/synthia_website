@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core";
 import PropTypes from "prop-types";
 import TextCard from "../../Components/TextCard";
 import Collapse from "@material-ui/core/Collapse";
+import ImageCard from "../../Components/ImageCard/ImageCard";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,7 +19,9 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    flexDirection: "column",
+    [theme.breakpoints.down("md")]: {
+      flexDirection: "column",
+    },
   },
 }));
 
@@ -43,15 +46,23 @@ const NewsletterPage = (props) => {
           {...(checked ? { timeout: 1000 } : {})}
           collapsedHeight={50}
         >
-          <TextCard place={text} pushMail={props.pushMail} />
+          <div className={classes.container}>
+            <TextCard place={text} pushMail={props.pushMail} />
+            <ImageCard place={props.places[0]}/>
+          </div>
         </Collapse>
       </div>
     </div>
   );
 };
 
+NewsletterPage.defaultProps = {
+  places: [],
+};
+
 NewsletterPage.propTypes = {
   pushMail: PropTypes.func.isRequired,
+  places: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default NewsletterPage;

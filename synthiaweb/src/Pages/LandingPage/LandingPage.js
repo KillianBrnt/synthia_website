@@ -53,7 +53,7 @@ LandingPage.defaultProps = {
 };
 
 LandingPage.propTypes = {
-  place: PropTypes.arrayOf(PropTypes.object),
+  places: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default LandingPage;
