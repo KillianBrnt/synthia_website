@@ -39,7 +39,6 @@ export default function ImageAndTextCard(props) {
         <CardMedia
           className={classes.media}
           image={props.place.imageUrl}
-          title="Contemplative Reptile"
         />
         <CardContent className={classes.content}>
           <Typography
