@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Header from "../../Components/Header";
 import { makeStyles } from "@material-ui/core";
 import { CssBaseline } from "@material-ui/core";
-import ImageCard from "../../Components/ImageCard";
+import ImageAndTextCard from "../../Components/ImageAndTextCard";
 import useWindowPosition from "../../hook/useWindowPosition";
 import { Collapse } from "@material-ui/core";
 
@@ -38,9 +38,9 @@ const LandingPage = (props) => {
       <div className={classes.synthiaInfo} id="synthia-info">
         <Collapse in={checked} {...(checked ? { timeout: 1000 } : {})}>
           <div className={classes.synthiaInfo}>
-            <ImageCard place={props.places[0]} />
-            <ImageCard place={props.places[1]} />
-            <ImageCard place={props.places[2]} />
+            <ImageAndTextCard place={props.places[0]} />
+            <ImageAndTextCard place={props.places[1]} />
+            <ImageAndTextCard place={props.places[2]} />
           </div>
         </Collapse>
       </div>

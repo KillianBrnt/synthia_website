@@ -31,7 +31,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function ImageCard(props) {
+export default function ImageAndTextCard(props) {
   const classes = useStyles();
 
   return (
@@ -63,7 +63,7 @@ export default function ImageCard(props) {
   );
 }
 
-ImageCard.defaultProps = {
+ImageAndTextCard.defaultProps = {
   place: {
     title: "No title",
     description: "no description provided",
@@ -71,6 +71,6 @@ ImageCard.defaultProps = {
   },
 };
 
-ImageCard.propTypes = {
+ImageAndTextCard.propTypes = {
   place: PropTypes.object,
 };
