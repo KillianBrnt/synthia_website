@@ -4,7 +4,7 @@ This is the landing page of my end of studies project, you can access it at [her
 
 ## Installation
 
-To install an run the code you only need npm.
+To install and run the code you only need npm.
 
 run :
 ```bash
