@@ -35,6 +35,8 @@ Latest commit 9cf70e5 23 days ago
 /node_modules
 /.pnp
 .pnp.js
+package-lock.json
+yarn.lock
 
 # testing
 /coverage
