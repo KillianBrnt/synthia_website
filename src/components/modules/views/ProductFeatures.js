@@ -15,6 +15,7 @@ const item = {
 export default function ProductFeatures() {
   return (
     <Box
+      id="about"
       component="section"
       sx={{ display: "flex", overflow: "hidden", bgcolor: "secondary.light" }}
     >
@@ -57,7 +58,7 @@ export default function ProductFeatures() {
               </Typography>
               <Typography variant="h5">
                 {
-                  "En plus de ses deux applications, Synthia est composé d’un boitier d’assistance vocal vous accompagnant durant vos réunions. L’assistant se lancera depuis l’application mobile et suivra le cours de votre réunion. Une fois la réunion terminé, l’assistant enverra le contenu vers notre programme de synthétisation."
+                  "En plus de cette application, Synthia est composé d’un boitier d’assistance vocal vous accompagnant durant vos réunions. L’assistant se lancera depuis l’application mobile et suivra le cours de votre réunion. Une fois la réunion terminé, l’assistant enverra le contenu vers notre programme de synthétisation."
                 }
               </Typography>
             </Box>
@@ -70,7 +71,7 @@ export default function ProductFeatures() {
               </Typography>
               <Typography variant="h5">
                 {
-                  "La synthétisation sera la dernière étape avant d’accéder à votre compte-rendu final. La puissance de notre intelligence artificielle retranscrira fidèlement les différents points abordés lors de votre réunion grâce à des séries de mots clés. Une fois disponible, il vous sera possible de télécharger et des partager vos comptes-rendus avec vos collaborateurs."
+                  "La synthétisation sera la dernière étape avant d’accéder à votre compte-rendu final. Notre intelligence artificielle retranscrira fidèlement les différents points abordés lors de votre réunion grâce à des séries de mots clés. Une fois disponible, il vous sera possible de télécharger et des partager vos comptes-rendus avec vos collaborateurs."
                 }
               </Typography>
             </Box>

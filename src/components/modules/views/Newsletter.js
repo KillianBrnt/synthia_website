@@ -6,6 +6,13 @@ import Typography from "../components/Typography";
 import TextField from "../components/TextField";
 import Snackbar from "../components/Snackbar";
 import Button from "../components/Button";
+import { styled } from "@mui/material/styles";
+
+const Spacer = styled("div")(({ theme }) => ({
+  opacity: 0,
+  width: "100%",
+  height: 80,
+}));
 
 export default function Newsletter() {
   const [open, setOpen] = React.useState(false);
@@ -90,6 +97,7 @@ export default function Newsletter() {
           message="We will send you our best offers, once a week."
         />
       </Container>
+      <Spacer />
     </div>
   );
 }
